@@ -1,4 +1,16 @@
-const superHeroe = {
+interface Item {
+  calle: string;
+  pais: string;
+  ciudad: string;
+}
+interface SuperHeroe {
+  nombre: string;
+  edad: number;
+  direccion: Item;
+  mostrarDireccion: () => string;
+}
+
+const superHeroe: SuperHeroe = {
   nombre: 'Spiderman',
   edad: 30,
   direccion: {
@@ -6,4 +18,12 @@ const superHeroe = {
     pais: 'USA',
     ciudad: 'NY',
   },
+  mostrarDireccion() {
+    return (
+      this.nombre + ', ' + this.direccion.ciudad + ', ' + this.direccion.pais
+    );
+  },
 };
+
+const direccion = superHeroe.mostrarDireccion();
+console.log(direccion);
